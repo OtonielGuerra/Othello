@@ -6,7 +6,7 @@ var lapiz = canvas.getContext('2d');
 
 //Declarando todas las imagenes y el fondo
 var fondo = {
-    url: './imagenes/Tablero2.jpg',
+    url: './imagenes/TableroNew.png',
     image: Image,
     cargaOK: false
 };
