@@ -3,6 +3,10 @@ var canvas = document.getElementById('fondo');
 
 //Codigo para declarar que las imagenes son 2d
 var lapiz = canvas.getContext('2d');
+  
+//Variable para declarar Array
+var matriz =  new Array(7);
+
 
 //Declarando todas las imagenes y el fondo
 var fondo = {
@@ -49,6 +53,18 @@ fichaNegra.imagen.addEventListener("load",function(){
     dibujar();
 });
 
+iniciarMatriz()
+
+//Llena la matriz de x en los espacios
+function iniciarMatriz() {
+    for (var i = 0; i < matriz.length; i++) {
+        matriz[i] = new Array(7);
+        for (var j = 0; j < matriz.length; j++) {
+            matriz[i][j] = 'x';
+        }
+    }
+}
+
 //Dibujando
 function dibujar(){ 
     if(fondo.cargaOK == true){
@@ -56,11 +72,20 @@ function dibujar(){
     }
 
     if(fichaBlanca.cargaOK == true){
-        lapiz.drawImage(fichaBlanca.imagen,5,5);
+        lapiz.drawImage(fichaBlanca.imagen,155,205);
+    }
+
+    if(fichaBlanca.cargaOK == true){
+        lapiz.drawImage(fichaBlanca.imagen,205,155);
     }
 
     if(fichaNegra.cargaOK == true){
-        lapiz.drawImage(fichaNegra.imagen,55,55);
+        lapiz.drawImage(fichaNegra.imagen,155,155);
+    }
+
+    if(fichaNegra.cargaOK == true){
+        lapiz.drawImage(fichaNegra.imagen,205,205
+            );
     }
 
     };
