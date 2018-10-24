@@ -12,7 +12,7 @@ var matriz =  new Array(7);
 
 //Variable "X" y "Y"
 x = 405;
-y = 55;
+y = 5;
 
 //variable para el turno
 noTurno = 1;
@@ -100,11 +100,11 @@ function dibujar(){
     }
 
     if(fichaNegra.cargaOK == true){
-        lapiz.drawImage(fichaNegra.imagen,405,5);
+        lapiz.drawImage(fichaNegra.imagen,x,y);
     }
 
     if(fichaBlanca.cargaOK == true){
-        lapiz.drawImage(fichaBlanca.imagen,x,y);
+        lapiz.drawImage(fichaBlanca.imagen,405,55);
     }
 
     };
