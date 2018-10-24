@@ -143,12 +143,10 @@ function dibujar(){
                 break;
     
             case tecla.DOWN:
-                if(y < 405){
+                if(y < 355){
                     y = y + DIMENSION;
                     dibujar();    
                 }
                 break;
             }
-    
-                
     };
