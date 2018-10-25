@@ -15,7 +15,7 @@ x = 405;
 y = 5;
 
 //variable para el turno
-noTurno = 1;
+noTurno = false;
 
 //Varible de 50 para mover fichas
 DIMENSION = 50;
@@ -81,31 +81,26 @@ function dibujar(){
     if(fondo.cargaOK == true){
         lapiz.drawImage(fondo.imagen,0,0);
     }
-
     if(fichaBlanca.cargaOK == true){
          lapiz.drawImage(fichaBlanca.imagen,155,205);
     }
-
     if(fichaBlanca.cargaOK == true){
         lapiz.drawImage(fichaBlanca.imagen,205,155);
     }
-
     if(fichaNegra.cargaOK == true){
         lapiz.drawImage(fichaNegra.imagen,155,155);
     }
-
     if(fichaNegra.cargaOK == true){
         lapiz.drawImage(fichaNegra.imagen,205,205);
     }
-
+    //dibuja negra de afuera
     if(fichaNegra.cargaOK == true){
-        lapiz.drawImage(fichaNegra.imagen,x,y);
+        lapiz.drawImage(fichaBlanca.imagen,x,y);
     }
-
+    //dibuja blanca de afurea
     if(fichaBlanca.cargaOK == true){
-        lapiz.drawImage(fichaBlanca.imagen,405,55);
+        lapiz.drawImage(fichaNegra.imagen,405,55);
     }
-
     };
     function fichas() {
         for (var i = 0; i < matriz.length; i++) {
@@ -113,7 +108,7 @@ function dibujar(){
                 if (matriz[i][j] == 'fn') {
                     lapiz.drawImage(fichaNegra.imagen,(i * DIMENSION) + 5, (j * DIMENSION) + 5 );
                 } else if (matriz[i][j] == 'fb') {
-                    lapiz.drawImage(fichaBlanca.imagen, i * DIMENSION, j * DIMENSION);
+                    lapiz.drawImage(fichaBlanca.imagen,(i * DIMENSION) + 5, (j * DIMENSION) + 5 );
                 }
             }
         }
@@ -163,14 +158,26 @@ function dibujar(){
                 }
                 break;           
             case tecla.ENTER:
-                
+                if(noTurno == true){               
                 if(matriz[(x - 5)/50][(y - 5)/50] == 'x'){               
                     matriz[(x - 5)/50][(y - 5)/50] = 'fn';                                      
                         fichas();
-                        alert("hola");
-                        
+                        alert("Turno del otro");
+                        noTurno = false;
+
                     //alert("hola");
                 }
+            }else if(noTurno == false){
+                    if(matriz[(x - 5)/50][(y - 5)/50] == 'x'){               
+                        matriz[(x - 5)/50][(y - 5)/50] = 'fb';                                      
+                            fichas();
+                            alert("Turno del otro");
+                            noTurno = true;
+    
+                        //alert("hola");
+                }
+
                 break;
             }
-    };
+    }
+}
