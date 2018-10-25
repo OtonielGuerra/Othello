@@ -11,7 +11,7 @@ var lapiz = canvas.getContext('2d');
 var matriz =  new Array(8);
 
 //Variable "X" y "Y"
-x = 55;
+x = 405;
 y = 5;
 
 //variable para el turno
