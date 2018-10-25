@@ -103,7 +103,7 @@ function dibujar(){
     }
 
     if(fichaBlanca.cargaOK == true){
-        lapiz.drawImage(fichaBlanca.imagen,405,55);
+        lapiz.drawImage(fichaBlanca.imagen,x,y);
     }
 
     };
@@ -113,7 +113,7 @@ function dibujar(){
                 if (matriz[i][j] == 'fn') {
                     lapiz.drawImage(fichaNegra.imagen,(i * DIMENSION) + 5, (j * DIMENSION) + 5 );
                 } else if (matriz[i][j] == 'fb') {
-                    lapiz.drawImage(fichaBlanca.imagen, i * DIMENSION, j * DIMENSION);
+                    lapiz.drawImage(fichaBlanca.imagen,( i * DIMENSION)+5, (j * DIMENSION)+5);
                 }
             }
         }
@@ -163,14 +163,29 @@ function dibujar(){
                 }
                 break;           
             case tecla.ENTER:
+//AGREGA LAS FICHAS NEGRAS EN EL TABLERO AL INICIAR EL JUEGO
+            if(noTurno==true){
                 
                 if(matriz[(x - 5)/50][(y - 5)/50] == 'x'){               
                     matriz[(x - 5)/50][(y - 5)/50] = 'fn';                                      
                         fichas();
-                        alert("hola");
-                        
-                    //alert("hola");
+                        alert("Es Turno de la Ficha Blanca");
+                        noTurno=false;
+                     
                 }
-                break;
+//AGREGA LAS FICHAS BLANCAS DESPUES DEL TURNO DE LAS FICHAS NEGRAS
+
+            }else if (noTurno==false){
+                
+                if(matriz[(x - 5)/50][(y - 5)/50] == 'x'){               
+                    matriz[(x - 5)/50][(y - 5)/50] = 'fb';                                      
+                        fichas();
+                        alert("Es Turno de la Ficha Negra");
+                        noTurno=true;
+                    
+                }
+            }
+break;
+           
             }
     };
