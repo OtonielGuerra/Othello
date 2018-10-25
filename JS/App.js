@@ -11,7 +11,7 @@ var lapiz = canvas.getContext('2d');
 var matriz =  new Array(7);
 
 //Variable "X" y "Y"
-x = 405;
+x = 55;
 y = 5;
 
 //variable para el turno
@@ -76,7 +76,6 @@ function iniciarMatriz() {
         }
     }
 }
-
 //Dibujando
 function dibujar(){ 
     if(fondo.cargaOK == true){
@@ -108,6 +107,18 @@ function dibujar(){
     }
 
     };
+    function fichas() {
+        for (var i = 0; i < matriz.length; i++) {
+            for (var j = 0; j < matriz.length; j++) {
+                if (matriz[i][j] == 'fn') {
+                    lapiz.drawImage(fichaNegra.imagen,(i * DIMENSION) + 5, (j * DIMENSION) + 5 );
+                } else if (matriz[i][j] == 'fb') {
+                    lapiz.drawImage(fichaBlanca.imagen, i * DIMENSION, j * DIMENSION);
+                }
+            }
+        }
+    }
+    
 
 //Codigo de programacion para las flechas y mover las fichas
     var tecla = {
@@ -125,13 +136,15 @@ function dibujar(){
                 if(x > 5){
                     x = x - DIMENSION;
                     dibujar();
+                    fichas();
                 }
                 break;
     
             case tecla.UP:
                 if(y > 5){
                     y = y - DIMENSION;
-                    dibujar();    
+                    dibujar();
+                    fichas();    
                 }
                 break;
     
@@ -139,13 +152,25 @@ function dibujar(){
                 if(x < 405){
                     x = x + DIMENSION;
                     dibujar();
+                    fichas();
                 }
-                break;
-    
+                break; 
             case tecla.DOWN:
                 if(y < 355){
                     y = y + DIMENSION;
-                    dibujar();    
+                    dibujar();
+                    fichas();
+                }
+                break;           
+            case tecla.ENTER:
+                
+                if(matriz[(x - 5)/50][(y - 5)/50] == 'x'){               
+                    matriz[(x - 5)/50][(y - 5)/50] = 'fn';                                      
+                        fichas();
+                        alert("hola");
+                        
+
+                    //alert("hola");
                 }
                 break;
             }
