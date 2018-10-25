@@ -95,7 +95,7 @@ function dibujar(){
     }
     regresar();
     if(fichaBlanca.cargaOK == true){
-        matriz[5][4] = 'fb';
+       // matriz[5][4] = 'fb';
         lapiz.drawImage(fichaBlanca.imagen,155,205);
    }
     if(fichaBlanca.cargaOK == true){
