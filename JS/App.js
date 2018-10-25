@@ -8,7 +8,7 @@ var canvas = document.getElementById('fondo');
 var lapiz = canvas.getContext('2d');
   
 //Variable para declarar Array
-var matriz =  new Array(7);
+var matriz =  new Array(8);
 
 //Variable "X" y "Y"
 x = 55;
@@ -70,7 +70,7 @@ iniciarMatriz()
 //Llena la matriz de x en los espacios
 function iniciarMatriz() {
     for (var i = 0; i < matriz.length; i++) {
-        matriz[i] = new Array(7);
+        matriz[i] = new Array(8);
         for (var j = 0; j < matriz.length; j++) {
             matriz[i][j] = 'x';
         }
@@ -169,7 +169,6 @@ function dibujar(){
                         fichas();
                         alert("hola");
                         
-
                     //alert("hola");
                 }
                 break;
