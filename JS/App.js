@@ -95,19 +95,18 @@ function dibujar(){
     }
     regresar();
     if(fichaBlanca.cargaOK == true){
-       // matriz[5][4] = 'fb';
-        lapiz.drawImage(fichaBlanca.imagen,155,205);
+       matriz[3][4] = 'fb';
    }
     if(fichaBlanca.cargaOK == true){
-        lapiz.drawImage(fichaBlanca.imagen,205,155);
+        matriz[4][3] = 'fb';
     }
     if(fichaNegra.cargaOK == true){
-        lapiz.drawImage(fichaNegra.imagen,155,155);
+        matriz[3][3] = 'fn';
     }
     if(fichaNegra.cargaOK == true){
-        lapiz.drawImage(fichaNegra.imagen,205,205);
+        matriz[4][4] = 'fn';
     }
-
+    fichas();
     };
     function fichas() {
         for (var i = 0; i < matriz.length; i++) {
@@ -178,8 +177,7 @@ function dibujar(){
                         x = 405;
                         y = 5;                                      
                         fichas();
-                        alert("Turno del otro");
-                    //alert("hola");
+                        alert("Turno de la ficha blanca");
                 }
             }else if(noTurno == false){
                     if(matriz[(x - 5)/50][(y - 5)/50] == 'x'){               
@@ -188,7 +186,7 @@ function dibujar(){
                             x = 405;
                             y = 5;                                       
                             fichas();
-                            alert("Turno del otro");
+                            alert("Turno de la ficha negra");
                 }
                 break;
             }
