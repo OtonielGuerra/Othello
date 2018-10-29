@@ -11,7 +11,7 @@ var lapiz = canvas.getContext('2d');
 var matriz =  new Array(8);
 
 //Variable "X" y "Y"
-x = 405;
+x = 5;
 y = 5;
 
 //variable para el turno
@@ -65,7 +65,7 @@ fichaNegra.imagen.addEventListener("load",function(){
     dibujar();
 });
 
-iniciarMatriz()
+iniciarMatriz();
 
 //Llena la matriz de x en los espacios
 function iniciarMatriz() {
@@ -85,6 +85,7 @@ function regresar(){
         if(fichaNegra.cargaOK == true){
             lapiz.drawImage(fichaBlanca.imagen,x,y);
         }
+         
     }
 }
 
@@ -154,7 +155,7 @@ function dibujar(){
                 break;
     
             case tecla.RIGHT:
-                if(x < 405){
+                if(x < 355){
                     x = x + DIMENSION;
                     dibujar();
                     fichas();
@@ -174,7 +175,7 @@ function dibujar(){
                 if(matriz[(x - 5)/50][(y - 5)/50] == 'x'){               
                     matriz[(x - 5)/50][(y - 5)/50] = 'fn';
                         noTurno = false;
-                        x = 405;
+                        x = 5;
                         y = 5;                                      
                         fichas();
                         alert("Turno de la ficha blanca");
@@ -183,7 +184,7 @@ function dibujar(){
                     if(matriz[(x - 5)/50][(y - 5)/50] == 'x'){               
                         matriz[(x - 5)/50][(y - 5)/50] = 'fb';
                             noTurno = true;
-                            x = 405;
+                            x = 5;
                             y = 5;                                       
                             fichas();
                             alert("Turno de la ficha negra");
