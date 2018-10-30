@@ -11,14 +11,17 @@ var lapiz = canvas.getContext('2d');
 var matriz =  new Array(8);
 
 //Variable "X" y "Y"
-x = 5;
-y = 5;
+var x = 5;
+var y = 5;
+
+//switch
+var SW = true;
 
 //variable para el turno
-noTurno = false;
+var noTurno = false;
 
 //Varible de 50 para mover fichas
-DIMENSION = 50;
+var DIMENSION = 50;
 
 //Declarando todas las imagenes y el fondo
 var fondo = {
@@ -91,21 +94,24 @@ function regresar(){
 
 //Dibujando
 function dibujar(){ 
-    if(fondo.cargaOK == true){
+    if(fondo.cargaOK == true && SW == true){
         lapiz.drawImage(fondo.imagen,0,0);
     }
     regresar();
-    if(fichaBlanca.cargaOK == true){
+    if(fichaBlanca.cargaOK == true && SW == true){
        matriz[3][4] = 'fb';
    }
-    if(fichaBlanca.cargaOK == true){
+    if(fichaBlanca.cargaOK == true && SW == true){
         matriz[4][3] = 'fb';
     }
-    if(fichaNegra.cargaOK == true){
+    if(fichaNegra.cargaOK == true && SW == true){
         matriz[3][3] = 'fn';
     }
-    if(fichaNegra.cargaOK == true){
+    if(fichaNegra.cargaOK == true && SW == true){
         matriz[4][4] = 'fn';
+    }
+    if(fondo.cargaOK == true && SW == false){
+        lapiz.drawImage(fondo.imagen,0,0);
     }
     fichas();
     };
@@ -173,9 +179,15 @@ function dibujar(){
                 break;           
             case tecla.ENTER:
 
+            if(matriz[(x -  55)/DIMENSION][(y - 5)/DIMENSION] == 'x'){
+                if(matriz[(x + 45) / DIMENSION][(y - 5) / DIMENSION] == 'x'){
+                    alert("Aqui no puedes poner la ficha amigo");
+                }
+            }
+
                 if(noTurno == true){               
-                if(matriz[(x - 5)/50][(y - 5)/50] == 'x'){               
-                    matriz[(x - 5)/50][(y - 5)/50] = 'fn';
+                if(matriz[(x - 5)/DIMENSION][(y - 5)/DIMENSION] == 'x'){               
+                    matriz[(x - 5)/DIMENSION][(y - 5)/DIMENSION] = 'fn';
                         noTurno = false;
                         x = 5;
                         y = 5;                                      
@@ -184,44 +196,49 @@ function dibujar(){
                 }
 
             }else if(noTurno == false){
-                    if(matriz[(x - 5)/50][(y - 5)/50] == 'x'){               
-                        matriz[(x - 5)/50][(y - 5)/50] = 'fb';
+                    if(matriz[(x - 5)/DIMENSION][(y - 5)/DIMENSION] == 'x'){               
+                        matriz[(x - 5)/DIMENSION][(y - 5)/DIMENSION] = 'fb';
                         noTurno = true;
                             //Lado Izquierdo
-                            if(matriz[(x -  55)/50][(y - 5)/50] == 'fn'){
+                            if(matriz[(x -  55)/DIMENSION][(y - 5)/DIMENSION] == 'fn'){
                                 for(var i = 2; i < 8; i++){
-                                    if(matriz[(x - (i * 50) - 5)/50][(y - 5)/50] == 'fb'){
+                                    if(matriz[(x - (i * DIMENSION) - 5)/DIMENSION][(y - 5)/DIMENSION] == 'fb'){
                                         for(var j = 1; i < 8; j++){
-                                            if(matriz[(x - (j * 50) - 5)/50][(y - 5)/50] =='fb'){
+                                            if(matriz[(x - (j * DIMENSION) - 5)/DIMENSION][(y - 5)/DIMENSION] =='fb'){
                                                 x = 5;
                                                 y = 5;
                                                 fichas();
                                                 regresar();
+                                                if(matriz[4][4] == 'fb'){
+                                                    SW = false;
+                                                }
                                                 break;
                                             }
-                                            matriz[(x - (j * 50) - 5)/50][(y - 5)/50] ='fb';
+                                            matriz[(x - (j * DIMENSION) - 5)/DIMENSION][(y - 5)/DIMENSION] ='fb';
                                         }
                                     }
                                 }
                             }
                             //Lado Derecho
-                            if(matriz[(x + 45) / 50][(y - 5) / 50] == 'fn'){
+                            if(matriz[(x + 45) / DIMENSION][(y - 5) / DIMENSION] == 'fn'){
                                 for(var i = 2; i < 8; i++){
-                                    if(matriz[(x + (i * 50) - 5) / 50][(y - 5) / 50] == 'fb'){
+                                    if(matriz[(x + (i * DIMENSION) - 5) / DIMENSION][(y - 5) / DIMENSION] == 'fb'){
                                         for(var j = 1; i < 8; j++){
-                                            if(matriz[(x + (j * 50) - 5)/50][(y - 5)/50] == 'fb'){
+                                            if(matriz[(x + (j * DIMENSION) - 5)/DIMENSION][(y - 5)/DIMENSION] == 'fb'){
                                                 x = 5;
                                                 y = 5;
                                                 fichas();
                                                 regresar();
+                                                if(matriz[3][3] == 'fb'){
+                                                    SW = false;
+                                                }
                                                 break;
                                             }
-                                            matriz[(x + (j * 50) - 5)/50][(y - 5)/50] ='fb';
+                                            matriz[(x + (j * DIMENSION) - 5)/DIMENSION][(y - 5)/DIMENSION] ='fb';
                                         }
                                     }
                                 }
                             }
-
                             x = 5;
                             y = 5;        
                             fichas();
