@@ -186,13 +186,15 @@ function dibujar(){
             }else if(noTurno == false){
                     if(matriz[(x - 5)/50][(y - 5)/50] == 'x'){               
                         matriz[(x - 5)/50][(y - 5)/50] = 'fb';
-                            noTurno = true;
+                        noTurno = true;
                             //Lado Izquierdo
                             if(matriz[(x -  55)/50][(y - 5)/50] == 'fn'){
                                 for(var i = 2; i < 8; i++){
                                     if(matriz[(x - (i * 50) - 5)/50][(y - 5)/50] == 'fb'){
                                         for(var j = 1; i < 8; j++){
                                             if(matriz[(x - (j * 50) - 5)/50][(y - 5)/50] =='fb'){
+                                                x = 5;
+                                                y = 5;
                                                 fichas();
                                                 regresar();
                                                 break;
@@ -202,14 +204,26 @@ function dibujar(){
                                     }
                                 }
                             }
-                            //Lado derecho
-                            if(matriz[(x + 45)/50][(y - 5)/50] == 'fn'){
-                                if(matriz[(x + 95)/50][(y - 5)/50] == 'fb'){
-                                    matriz[(x + 45)/50][(y - 5)/50] ='fb';
-                                }                              
+                            //Lado Derecho
+                            if(matriz[(x + 45) / 50][(y - 5) / 50] == 'fn'){
+                                for(var i = 2; i < 8; i++){
+                                    if(matriz[(x + (i * 50) - 5) / 50][(y - 5) / 50] == 'fb'){
+                                        for(var j = 1; i < 8; j++){
+                                            if(matriz[(x + (j * 50) - 5)/50][(y - 5)/50] == 'fb'){
+                                                x = 5;
+                                                y = 5;
+                                                fichas();
+                                                regresar();
+                                                break;
+                                            }
+                                            matriz[(x + (j * 50) - 5)/50][(y - 5)/50] ='fb';
+                                        }
+                                    }
+                                }
                             }
+
                             x = 5;
-                            y = 5;                    
+                            y = 5;        
                             fichas();
                             alert("Turno de la ficha negra");
                 }
