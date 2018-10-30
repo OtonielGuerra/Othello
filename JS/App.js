@@ -208,10 +208,6 @@ function dibujar(){
                                     matriz[(x + 45)/50][(y - 5)/50] ='fb';
                                 }                              
                             }
-                            //Arriba
-                           // if(matriz[(x + 45)/50][(y - 5)/50] == 'fn'){
-
-                            //}
                             x = 5;
                             y = 5;                    
                             fichas();
