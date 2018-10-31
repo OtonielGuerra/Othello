@@ -176,9 +176,9 @@ function dibujar(){
                     fichas();
                     regresar();
                 }
-                break;           
+                break; 
+
             case tecla.ENTER:
-                if(noTurno == true){               
                 if(matriz[(x - 5)/DIMENSION][(y - 5)/DIMENSION] == 'x'){               
                     matriz[(x - 5)/DIMENSION][(y - 5)/DIMENSION] = 'fn';
                         noTurno = false;                       
@@ -194,12 +194,14 @@ function dibujar(){
                                 for(var j = 1; i < 8; j++){
                                     if(matriz[(x - (j * 50) - 5)/50][(y - 5)/50] =='fn'){
                                         x = 5;
-                                         y = 5; 
+                                        y = 5; 
                                         fichas();
                                         regresar();
-                                    
+                                        if(matriz[3][4] = 'fn'){
+                                            SW = false;
+                                        }
                                     }
-                                    matriz[(x - (j * 50) - 5)/50][(y - 5)/50] ='fn';
+                                    matriz[(x - (j * 50) - 5)/50][(y - 5)/50] = 'fn';
                                 }
                             }
                         }
@@ -209,36 +211,29 @@ function dibujar(){
                         for(var i = 2; i < 8; i++){
                             if(matriz[(x + (i * 50) - 5) / 50][(y - 5) / 50] == 'fn'){
                                 for(var j = 1; i < 8; j++){
-                                    if(matriz[(x + (j * 50) - 5)/50][(y - 5)/50] == 'fn'){                                          
-                                        fichas();
-                                        regresar();
+                                    if(matriz[(x + (j * 50) - 5)/50][(y - 5)/50] == 'fn'){  
                                         x = 5;
                                         y = 5;                                      
+                                        fichas();
+                                        regresar();
+                                        if(matriz[4][3] = 'fn'){
+                                            SW = false;
+                                        }
+                                        break;
                                     }
                                     matriz[(x + (j * 50) - 5)/50][(y - 5)/50] ='fn';
                                 }
                             }
                         }
                     }
+                    matriz[(x - 5)/DIMENSION][(y - 5)/DIMENSION] = 'fn';
+                    noTurno = false;
                     x = 5;
-                    y = 5;        
+                    y = 5;     
                     fichas();
                     regresar();
-                    alert("Turno de la ficha blanca");
-
-        }   
-        
-
-            }else if(noTurno == false){
-                    if(matriz[(x - 5)/DIMENSION][(y - 5)/DIMENSION] == 'x'){               
-                        matriz[(x - 5)/DIMENSION][(y - 5)/DIMENSION] = 'fb';
-                        noTurno = true;
-                        x = 5;
-                        y = 5;        
-                        fichas();
-                        regresar();
-                        alert("Turno de la ficha negra");
-                            //Lado Izquierdo
+                    alert("Camio de turno");
+        }  
                             if(matriz[(x -  55)/DIMENSION][(y - 5)/DIMENSION] == 'fn'){
                                 for(var i = 2; i < 8; i++){
                                     if(matriz[(x - (i * DIMENSION) - 5)/DIMENSION][(y - 5)/DIMENSION] == 'fb'){
@@ -251,13 +246,14 @@ function dibujar(){
                                                 if(matriz[4][4] == 'fb'){
                                                     SW = false;
                                                 }
+                                                break;
                                             }
                                             matriz[(x - (j * DIMENSION) - 5)/DIMENSION][(y - 5)/DIMENSION] ='fb';
                                         }
                                     }
                                 }
                             }
-                            //Lado Derecho
+                            //Lado Derecho Blanca
                             if(matriz[(x + 45) / DIMENSION][(y - 5) / DIMENSION] == 'fn'){
                                 for(var i = 2; i < 8; i++){
                                     if(matriz[(x + (i * DIMENSION) - 5) / DIMENSION][(y - 5) / DIMENSION] == 'fb'){
@@ -270,15 +266,19 @@ function dibujar(){
                                                 if(matriz[3][3] == 'fb'){
                                                     SW = false;
                                                 }
-                                                
+                                                break;
                                             }
                                             matriz[(x + (j * DIMENSION) - 5)/DIMENSION][(y - 5)/DIMENSION] ='fb';
                                         }
                                     }
                                 }
                             }
+                        x = 5;
+                        y = 5;      
+                        regresar();  
+                        fichas();
+                        alert("Camio de turno");
                 }
             }
             break;
-    }
-}
+    
