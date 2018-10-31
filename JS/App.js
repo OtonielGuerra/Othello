@@ -179,16 +179,97 @@ function dibujar(){
                 break;           
             case tecla.ENTER:
 
-            if(matriz[(x -  55)/DIMENSION][(y - 5)/DIMENSION] == 'x'){
+            /*if(matriz[(x -  55)/DIMENSION][(y - 5)/DIMENSION] == 'x'){
                 if(matriz[(x + 45) / DIMENSION][(y - 5) / DIMENSION] == 'x'){
                     alert("Aqui no puedes poner la ficha amigo");
                 }
-            }
+            }*/
 
                 if(noTurno == true){               
                 if(matriz[(x - 5)/DIMENSION][(y - 5)/DIMENSION] == 'x'){               
                     matriz[(x - 5)/DIMENSION][(y - 5)/DIMENSION] = 'fn';
                         noTurno = false;
+                        //Lado Izquierdo
+                        if(matriz[(x -  55)/DIMENSION][(y - 5)/DIMENSION] == 'fb'){
+                            for(var i = 2; i < 8; i++){
+                                if(matriz[(x - (i * DIMENSION) - 5)/DIMENSION][(y - 5)/DIMENSION] == 'fn'){
+                                    for(var j = 1; i < 8; j++){
+                                        if(matriz[(x - (j * DIMENSION) - 5)/DIMENSION][(y - 5)/DIMENSION] =='fn'){
+                                            x = 5;
+                                            y = 5;
+                                            fichas();
+                                            regresar();
+                                            /*if(matriz[4][4] == 'fb'){
+                                                SW = false;
+                                            }*/
+                                            alert("Turno de la ficha blanca");
+                                            break;
+                                        }
+                                        matriz[(x - (j * DIMENSION) - 5)/DIMENSION][(y - 5)/DIMENSION] ='fn';
+                                    }
+                                }
+                            }
+                        }
+                        //Lado Derecho
+                        if(matriz[(x + 45) / DIMENSION][(y - 5) / DIMENSION] == 'fb'){
+                            for(var i = 2; i < 8; i++){
+                                if(matriz[(x + (i * DIMENSION) - 5) / DIMENSION][(y - 5) / DIMENSION] == 'fn'){
+                                    for(var j = 1; i < 8; j++){
+                                        if(matriz[(x + (j * DIMENSION) - 5)/DIMENSION][(y - 5)/DIMENSION] == 'fn'){
+                                            x = 5;
+                                            y = 5;
+                                            fichas();
+                                            regresar();
+                                            /*if(matriz[3][3] == 'fb'){
+                                                SW = false;
+                                            }*/
+                                            break;
+                                        }
+                                        matriz[(x + (j * DIMENSION) - 5)/DIMENSION][(y - 5)/DIMENSION] ='fn';
+                                    }
+                                }
+                            }
+                        }
+                        //Arriba
+                        if(matriz[(x - 5) / DIMENSION][(y - 55) / DIMENSION] == 'fb'){
+                            for(var i = 2; i < 8; i++){
+                                if(matriz[(x - 5) / DIMENSION][(y - (i * DIMENSION) - 5) / DIMENSION] == 'fn'){
+                                    for(var j = 1; j < 8; j++){
+                                        if(matriz[(x - 5)/DIMENSION][(y - (j * DIMENSION) - 5)/DIMENSION] == 'fn'){
+                                            x = 5;
+                                            y = 5;
+                                            fichas();
+                                            regresar();
+                                            /*if(matriz[4][4] == 'fb'){
+                                                SW = false;
+                                            }*/
+                                            break;
+                                        }
+                                        matriz[(x - 5)/DIMENSION][(y - (j * DIMENSION) - 5)/DIMENSION] ='fn';
+                                    }
+                                }
+                            }
+                        }
+                        //Abajo
+                        if(matriz[(x - 5) / DIMENSION][(y + 45) / DIMENSION] == 'fb'){
+                            for(var i = 2; i < 8; i++){
+                                if(matriz[(x - 5) / DIMENSION][(y + (i * DIMENSION) - 5) / DIMENSION] == 'fn'){
+                                    for(var j = 1; j < 8; j++){
+                                        if(matriz[(x - 5)/DIMENSION][(y + (j * DIMENSION) - 5)/DIMENSION] == 'fn'){
+                                            x = 5;
+                                            y = 5;
+                                            fichas();
+                                            regresar();
+                                            /*if(matriz[3][3] == 'fb'){
+                                                SW = false;
+                                            }*/
+                                            break;
+                                        }
+                                        matriz[(x - 5)/DIMENSION][(y + (j * DIMENSION) - 5)/DIMENSION] ='fn';
+                                    }
+                                }
+                            }
+                        }
                         x = 5;
                         y = 5;                                      
                         fichas();
@@ -212,6 +293,7 @@ function dibujar(){
                                                 if(matriz[4][4] == 'fb'){
                                                     SW = false;
                                                 }
+                                                alert("Turno de la ficha negra");
                                                 break;
                                             }
                                             matriz[(x - (j * DIMENSION) - 5)/DIMENSION][(y - 5)/DIMENSION] ='fb';
@@ -235,6 +317,46 @@ function dibujar(){
                                                 break;
                                             }
                                             matriz[(x + (j * DIMENSION) - 5)/DIMENSION][(y - 5)/DIMENSION] ='fb';
+                                        }
+                                    }
+                                }
+                            }
+                            //Arriba
+                            if(matriz[(x - 5) / DIMENSION][(y - 55) / DIMENSION] == 'fn'){
+                                for(var i = 2; i < 8; i++){
+                                    if(matriz[(x - 5) / DIMENSION][(y - (i * DIMENSION) - 5) / DIMENSION] == 'fb'){
+                                        for(var j = 1; j < 8; j++){
+                                            if(matriz[(x - 5)/DIMENSION][(y - (j * DIMENSION) - 5)/DIMENSION] == 'fb'){
+                                                x = 5;
+                                                y = 5;
+                                                fichas();
+                                                regresar();
+                                                if(matriz[4][4] == 'fb'){
+                                                    SW = false;
+                                                }
+                                                break;
+                                            }
+                                            matriz[(x - 5)/DIMENSION][(y - (j * DIMENSION) - 5)/DIMENSION] ='fb';
+                                        }
+                                    }
+                                }
+                            }
+                            //Abajo
+                            if(matriz[(x - 5) / DIMENSION][(y + 45) / DIMENSION] == 'fn'){
+                                for(var i = 2; i < 8; i++){
+                                    if(matriz[(x - 5) / DIMENSION][(y + (i * DIMENSION) - 5) / DIMENSION] == 'fb'){
+                                        for(var j = 1; j < 8; j++){
+                                            if(matriz[(x - 5)/DIMENSION][(y + (j * DIMENSION) - 5)/DIMENSION] == 'fb'){
+                                                x = 5;
+                                                y = 5;
+                                                fichas();
+                                                regresar();
+                                                if(matriz[3][3] == 'fb'){
+                                                    SW = false;
+                                                }
+                                                break;
+                                            }
+                                            matriz[(x - 5)/DIMENSION][(y + (j * DIMENSION) - 5)/DIMENSION] ='fb';
                                         }
                                     }
                                 }
