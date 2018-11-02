@@ -92,6 +92,18 @@ function regresar(){
     }
 }
 
+/*function Ganador(){
+    if(matriz == 'x'){
+        if(matriz = 'fn'>'fb'){
+            alert("Ha ganado la ficha negra")
+        }
+        else if (matriz = 'fb'> 'fn'){
+            alert("Ha ganado la ficha Blanca")
+        }
+
+    }
+}*/
+
 //Dibujando
 function dibujar(){ 
     if(fondo.cargaOK == true && SW == true){
@@ -180,10 +192,12 @@ function dibujar(){
             case tecla.ENTER:
 
             /*if(matriz[(x -  55)/DIMENSION][(y - 5)/DIMENSION] == 'x'){
-                if(matriz[(x + 45) / DIMENSION][(y - 5) / DIMENSION] == 'x'){
+                if(matriz[(x + 45) / DIMENSION][(y - 5) / DIMENSION][(x - 45) / DIMENSION][(x + 5) / DIMENSION] == 'x'){
                     alert("Aqui no puedes poner la ficha amigo");
                 }
+                break;
             }*/
+
                 //Fichas Negras
                 if(noTurno == true){               
                 if(matriz[(x - 5)/DIMENSION][(y - 5)/DIMENSION] == 'x'){               
@@ -507,12 +521,20 @@ function dibujar(){
                                     }
                                 }
                             }
+
                             x = 5;
                             y = 5;        
                             fichas();
+
                 }
             }
             fichas();
+            //Ganador()
             break;
+
     }
 }
+
+
+
+
