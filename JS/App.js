@@ -184,7 +184,7 @@ function dibujar(){
                     alert("Aqui no puedes poner la ficha amigo");
                 }
             }*/
-
+                //Fichas Negras
                 if(noTurno == true){               
                 if(matriz[(x - 5)/DIMENSION][(y - 5)/DIMENSION] == 'x'){               
                     matriz[(x - 5)/DIMENSION][(y - 5)/DIMENSION] = 'fn';
@@ -332,7 +332,7 @@ function dibujar(){
                         fichas();
                         alert("Turno de la ficha blanca");
                 }
-
+                    //Fichas Blancas
             }else if(noTurno == false){
                     if(matriz[(x - 5)/DIMENSION][(y - 5)/DIMENSION] == 'x'){               
                         matriz[(x - 5)/DIMENSION][(y - 5)/DIMENSION] = 'fb';
@@ -483,6 +483,26 @@ function dibujar(){
                                                 break;
                                             }
                                             matriz[(x - (j * DIMENSION) - 5)/DIMENSION][(y + (j * DIMENSION) - 5)/DIMENSION] ='fb';
+                                        }
+                                    }
+                                }
+                            }
+                            //Diagonal derecha abajo
+                            if(matriz[(x + 45) / DIMENSION][(y + 45) / DIMENSION] == 'fn'){
+                                for(var i = 2; i < 8; i++){
+                                    if(matriz[(x + (i * DIMENSION) - 5) / DIMENSION][(y + (i * DIMENSION) - 5) / DIMENSION] == 'fb'){
+                                        for(var j = 1; i < 8; j++){
+                                            if(matriz[(x + (j * DIMENSION) - 5)/DIMENSION][(y + (j * DIMENSION) - 5)/DIMENSION] == 'fb'){
+                                                x = 5;
+                                                y = 5;
+                                                fichas();
+                                                regresar();
+                                                if(matriz[4][4] == 'fb'){
+                                                    SW = false;
+                                                }
+                                                break;
+                                            }
+                                            matriz[(x + (j * DIMENSION) - 5)/DIMENSION][(y + (j * DIMENSION) - 5)/DIMENSION] ='fb';
                                         }
                                     }
                                 }
