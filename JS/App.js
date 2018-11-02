@@ -184,7 +184,7 @@ function dibujar(){
                     alert("Aqui no puedes poner la ficha amigo");
                 }
             }*/
-                //Fichas Negras
+
                 if(noTurno == true){               
                 if(matriz[(x - 5)/DIMENSION][(y - 5)/DIMENSION] == 'x'){               
                     matriz[(x - 5)/DIMENSION][(y - 5)/DIMENSION] = 'fn';
