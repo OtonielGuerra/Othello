@@ -189,6 +189,8 @@ function dibujar(){
                 if(matriz[(x - 5)/DIMENSION][(y - 5)/DIMENSION] == 'x'){               
                     matriz[(x - 5)/DIMENSION][(y - 5)/DIMENSION] = 'fn';
                         noTurno = false;
+
+                        //VALIDACIONES DE LAS FICHAS NEGRAS
                         //Lado Izquierdo
                         if(matriz[(x -  55)/DIMENSION][(y - 5)/DIMENSION] == 'fb'){
                             for(var i = 2; i < 8; i++){
@@ -337,6 +339,8 @@ function dibujar(){
                     if(matriz[(x - 5)/DIMENSION][(y - 5)/DIMENSION] == 'x'){               
                         matriz[(x - 5)/DIMENSION][(y - 5)/DIMENSION] = 'fb';
                         noTurno = true;
+
+                        //VALIDACIONES DE LAS FICHAS BLANCAS
                             //Lado Izquierdo
                             if(matriz[(x -  55)/DIMENSION][(y - 5)/DIMENSION] == 'fn'){
                                 for(var i = 2; i < 8; i++){
