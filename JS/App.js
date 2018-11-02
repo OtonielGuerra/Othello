@@ -214,14 +214,43 @@ function Movida(x,y,F1,F2,color){
             }
         }
         //lado derrecho
-        if(((x + 45)/DIMENSION) <= 8){
+        if(((x + 45)/DIMENSION) < 8){
             if(matriz[(x + 45)/DIMENSION][(y - 5)/DIMENSION] == F2){
                 for(var i = 2; i < 8; i++){
-                    if(((x - (i * DIMENSION) - 5)/DIMENSION) >= 0 ){
+                    if(((x + (i * DIMENSION) - 5)/DIMENSION) < 8 ){
                         if(matriz[(x + (i * DIMENSION) - 5)/DIMENSION][(y - 5)/DIMENSION] == F1){
+                            console.log("Hola");
                             for(var j = 1; i < 8; j++){
                                 if(matriz[(x + (j * DIMENSION) - 5)/DIMENSION][(y - 5)/DIMENSION] == F1){
-                                    if(matriz[4][4] == 'fb'){
+                                    if(matriz[3][3] == 'fb'){
+                                        SW = false;
+                                    }
+                                    alert("Turno de la ficha" + color);
+                                    break;
+                                }  
+                                matriz[(x + (j * DIMENSION) - 5)/DIMENSION][(y - 5)/DIMENSION] = F1;
+                                matriz[(x - 5)/DIMENSION][(y - 5)/DIMENSION] = F1;
+                                if(noTurno == true){
+                                    noTurno = false;
+                                }else{
+                                    noTurno = true;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        //Arriba
+        if(((x + 45)/DIMENSION) < 8){
+            if(matriz[(x + 45)/DIMENSION][(y - 5)/DIMENSION] == F2){
+                for(var i = 2; i < 8; i++){
+                    if(((x + (i * DIMENSION) - 5)/DIMENSION) < 8 ){
+                        if(matriz[(x + (i * DIMENSION) - 5)/DIMENSION][(y - 5)/DIMENSION] == F1){
+                            console.log("Hola");
+                            for(var j = 1; i < 8; j++){
+                                if(matriz[(x + (j * DIMENSION) - 5)/DIMENSION][(y - 5)/DIMENSION] == F1){
+                                    if(matriz[3][3] == 'fb'){
                                         SW = false;
                                     }
                                     alert("Turno de la ficha" + color);
@@ -241,7 +270,7 @@ function Movida(x,y,F1,F2,color){
             }
         }
     }
-    return ((x + 45)/DIMENSION);
+    return;
 }
 
 //Funciones basicas llamadas para recargar las imagenes
