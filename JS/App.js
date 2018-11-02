@@ -115,6 +115,8 @@ function dibujar(){
     }
     fichas();
     };
+
+    //Creacion de Fichas
     
     function fichas() {
         for (var i = 0; i < matriz.length; i++) {
