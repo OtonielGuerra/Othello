@@ -132,6 +132,26 @@ function dibujar(){
         }
     }
     
+//Funcion para determinar el ganador
+/*function Ganador(){
+    if(matriz[i][j].length == 'fn' > 'fb'){
+        alert("A ganado la ficha negra")
+    }
+    else if (matriz[i][j].length == 'fb' > 'fn'){
+        alert("A ganado la ficha blanca")
+    }
+    else if(matriz[i][j].length == ['fn'='fb']){
+        alert("A ocurrido un empate")
+
+    }
+}
+
+function JuegoTerminado(){
+    if(matriz[i][j].length == 'x'== 0){
+        Ganador();
+    }
+
+}*/
 
 //Codigo de programacion para las flechas y mover las fichas
     var tecla = {
@@ -186,6 +206,7 @@ function dibujar(){
                     alert("Aqui no puedes poner la ficha amigo");
                 }
             }*/
+            
 
                 if(noTurno == true){               
                 if(matriz[(x - 5)/DIMENSION][(y - 5)/DIMENSION] == 'x'){               
@@ -516,9 +537,11 @@ function dibujar(){
                             x = 5;
                             y = 5;        
                             fichas();
+                            
                 }
             }
             fichas();
+            
             break;
     }
 }
