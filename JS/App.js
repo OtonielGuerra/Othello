@@ -8,7 +8,7 @@ var canvas = document.getElementById('fondo');
 var lapiz = canvas.getContext('2d');
 
 //Variable para declarar Array
-var matriz =  new Array(8);
+var matriz =  new Array(8); 
 
 //Variable "X" y "Y"
 var x = 5;
@@ -16,6 +16,9 @@ var y = 5;
 
 //switch
 var SW = true;
+
+//Switch 2
+var WS = false;
 
 //variable para el turno
 var noTurno = false;
@@ -172,15 +175,11 @@ function movimiento(evento){
         break;
 
         case tecla.ENTER:
+            WS = false;
             if(noTurno == false){
                 Movida(x,y,'fb','fn'," negra");
             }else{
                 Movida(x,y,'fn','fb'," blanca");
-            }
-            if(noTurno == true){
-                noTurno = false;
-            }else{
-                noTurno = true;
             }
             x = 5;
             y = 5;
@@ -202,11 +201,11 @@ function Movida(x,y,F1,F2,color){
                                     if(matriz[4][4] == 'fb'){
                                         SW = false;
                                     }
-                                    alert("Turno de la ficha" + color);
                                     break;
                                 }  
                                 matriz[(x - (j * DIMENSION) - 5)/DIMENSION][(y - 5)/DIMENSION] = F1;
                                 matriz[(x - 5)/DIMENSION][(y - 5)/DIMENSION] = F1;
+                                turno();
                             }
                         }
                         if(matriz[(x - (i * DIMENSION) - 5)/DIMENSION][(y - 5)/DIMENSION] == 'x'){
@@ -227,11 +226,11 @@ function Movida(x,y,F1,F2,color){
                                     if(matriz[3][3] == 'fb'){
                                         SW = false;
                                     }
-                                    alert("Turno de la ficha" + color);
                                     break;
                                 }  
                                 matriz[(x + (j * DIMENSION) - 5)/DIMENSION][(y - 5)/DIMENSION] = F1;
                                 matriz[(x - 5)/DIMENSION][(y - 5)/DIMENSION] = F1;
+                                turno();
                             }
                         }
                         if(matriz[(x + (i * DIMENSION) - 5)/DIMENSION][(y - 5)/DIMENSION] == 'x'){
@@ -252,11 +251,11 @@ function Movida(x,y,F1,F2,color){
                                     if(matriz[4][4] == 'fb'){
                                         SW = false;
                                     }
-                                    alert("Turno de la ficha" + color);
                                     break;
                                 }  
                                 matriz[(x - 5)/DIMENSION][(y - (j * DIMENSION) - 5)/DIMENSION] = F1;
                                 matriz[(x - 5)/DIMENSION][(y - 5)/DIMENSION] = F1;
+                                turno();
                             }
                         }
                         if(matriz[(x - 5) / DIMENSION][(y - (i * DIMENSION) - 5) / DIMENSION] == 'x'){
@@ -277,11 +276,11 @@ function Movida(x,y,F1,F2,color){
                                     if(matriz[3][3] == 'fb'){
                                         SW = false;
                                     }
-                                    alert("Turno de la ficha" + color);
                                     break;
                                 }  
                                 matriz[(x - 5)/DIMENSION][(y + (j * DIMENSION) - 5)/DIMENSION] = F1;
                                 matriz[(x - 5)/DIMENSION][(y - 5)/DIMENSION] = F1;
+                                turno();
                             }
                         }
                         if(matriz[(x - 5) / DIMENSION][(y + (i * DIMENSION) - 5) / DIMENSION] == 'x'){
@@ -292,7 +291,11 @@ function Movida(x,y,F1,F2,color){
             }
         }
     }
-    return x;
+    if(WS == true){
+        return alert("Turno de la ficha" + color);
+    }else{
+        return alert("Aqui no puede poner tu ficha amigo, Intenta de nuevo");
+    }
 }
 
 //Funciones basicas llamadas para recargar las imagenes
@@ -300,4 +303,16 @@ function basicas(){
     regresar();
     dibujar();
     fichas();
+}
+
+//Funcion de switch para los turnos
+function turno(){
+    if(WS == false){
+        if(noTurno == true){
+            noTurno = false;
+        }else{
+            noTurno = true;
+        }
+        WS = true;
+    }
 }
