@@ -177,6 +177,11 @@ function movimiento(evento){
             }else{
                 Movida(x,y,'fn','fb'," blanca");
             }
+            if(noTurno == true){
+                noTurno = false;
+            }else{
+                noTurno = true;
+            }
             x = 5;
             y = 5;
             basicas();
@@ -202,11 +207,6 @@ function Movida(x,y,F1,F2,color){
                                 }  
                                 matriz[(x - (j * DIMENSION) - 5)/DIMENSION][(y - 5)/DIMENSION] = F1;
                                 matriz[(x - 5)/DIMENSION][(y - 5)/DIMENSION] = F1;
-                                if(noTurno == true){
-                                    noTurno = false;
-                                }else{
-                                    noTurno = true;
-                                }
                             }
                         }
                         if(matriz[(x - (i * DIMENSION) - 5)/DIMENSION][(y - 5)/DIMENSION] == 'x'){
@@ -232,11 +232,6 @@ function Movida(x,y,F1,F2,color){
                                 }  
                                 matriz[(x + (j * DIMENSION) - 5)/DIMENSION][(y - 5)/DIMENSION] = F1;
                                 matriz[(x - 5)/DIMENSION][(y - 5)/DIMENSION] = F1;
-                                if(noTurno == true){
-                                    noTurno = false;
-                                }else{
-                                    noTurno = true;
-                                }
                             }
                         }
                         if(matriz[(x + (i * DIMENSION) - 5)/DIMENSION][(y - 5)/DIMENSION] == 'x'){
@@ -262,11 +257,6 @@ function Movida(x,y,F1,F2,color){
                                 }  
                                 matriz[(x - 5)/DIMENSION][(y - (j * DIMENSION) - 5)/DIMENSION] = F1;
                                 matriz[(x - 5)/DIMENSION][(y - 5)/DIMENSION] = F1;
-                                if(noTurno == true){
-                                    noTurno = false;
-                                }else{
-                                    noTurno = true;
-                                }
                             }
                         }
                         if(matriz[(x - 5) / DIMENSION][(y - (i * DIMENSION) - 5) / DIMENSION] == 'x'){
@@ -292,11 +282,6 @@ function Movida(x,y,F1,F2,color){
                                 }  
                                 matriz[(x - 5)/DIMENSION][(y + (j * DIMENSION) - 5)/DIMENSION] = F1;
                                 matriz[(x - 5)/DIMENSION][(y - 5)/DIMENSION] = F1;
-                                if(noTurno == true){
-                                    noTurno = false;
-                                }else{
-                                    noTurno = true;
-                                }
                             }
                         }
                         if(matriz[(x - 5) / DIMENSION][(y + (i * DIMENSION) - 5) / DIMENSION] == 'x'){
