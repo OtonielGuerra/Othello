@@ -248,7 +248,7 @@ function Movida(x,y,F1,F2,color){
                     if(((y - (i * DIMENSION) - 5)/DIMENSION) >= 0 ){
                         if(matriz[(x - 5) / DIMENSION][(y - (i * DIMENSION) - 5) / DIMENSION] == F1){
                             for(var j = 1; i < 8; j++){
-                                if(matriz[(x - 5)/DIMENSION][(y - (j * DIMENSION) - 5)/DIMENSION] == F1){ 
+                                if(matriz[(x - 5)/DIMENSION][(y - (j * DIMENSION) - 5)/DIMENSION] == F1){
                                     if(matriz[4][4] == 'fb'){
                                         SW = false;
                                     }
