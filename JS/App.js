@@ -291,6 +291,94 @@ function Movida(x,y,F1,F2,color){
                 }
             }
         }
+        //Diagonal abajo derecha
+        if(((y + 45)/DIMENSION) < 8 && ((x + 55)/DIMENSION) < 8 ){
+            if(matriz[(x + 45) / DIMENSION][(y + 45) / DIMENSION] == F2){
+                for(var i = 2; i < 8; i++){
+                    if(((y + (i * DIMENSION) - 5)/DIMENSION) && ((x + (i * DIMENSION) - 5)/DIMENSION) < 8 ){
+                        if(matriz[(x + (i * DIMENSION) - 5)/DIMENSION][(y + (i * DIMENSION) - 5) / DIMENSION] == F1){
+                            for(var j = 1; i < 8; j++){
+                                if(matriz[(x + (j * DIMENSION) - 5)/DIMENSION][(y + (j * DIMENSION) - 5)/DIMENSION] == F1){
+                                    alert("Turno de la ficha" + color);
+                                    break;
+                                }  
+                                matriz[(x + (j * DIMENSION) - 5)/DIMENSION][(y + (j * DIMENSION) - 5)/DIMENSION] = F1;
+                                matriz[(x - 5)/DIMENSION][(y - 5)/DIMENSION] = F1;
+                            }
+                        }
+                        if(matriz[(x + (i * DIMENSION) - 5)/DIMENSION][(y + (i * DIMENSION) - 5) / DIMENSION] == 'x'){
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        //Diagonal abajo izquierda
+        if(((y + 45)/DIMENSION) < 8 && ((x - 45)/DIMENSION) < 8){
+            if(matriz[(x -  55)/DIMENSION][(y + 45) / DIMENSION] == F2){
+                for(var i = 2; i < 8; i++){
+                    if(((y + (i * DIMENSION) - 5)/DIMENSION) && ((x - (i * DIMENSION) - 5)/DIMENSION) < 8 ){
+                        if(matriz[(x - (i * DIMENSION) - 5)/DIMENSION][(y + (i * DIMENSION) - 5) / DIMENSION] == F1){
+                            for(var j = 1; i < 8; j++){
+                                if(matriz[(x - (j * DIMENSION) - 5)/DIMENSION][(y + (j * DIMENSION) - 5)/DIMENSION] == F1){
+                                    alert("Turno de la ficha" + color);
+                                    break;
+                                }  
+                                matriz[(x - (j * DIMENSION) - 5)/DIMENSION][(y + (j * DIMENSION) - 5)/DIMENSION] = F1;
+                                matriz[(x - 5)/DIMENSION][(y - 5)/DIMENSION] = F1;
+                            }
+                        }
+                        if(matriz[(x - 5) / DIMENSION][(y + (i * DIMENSION) - 5) / DIMENSION] == 'x'){
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        //Diagonal arriba Derecha
+        if(((y - 55)/DIMENSION) && ((x - 55)/DIMENSION) >= 0){
+            if(matriz[(x + 45)/DIMENSION][(y - 55) / DIMENSION] == F2){
+                for(var i = 2; i < 8; i++){
+                    if(((y - (i * DIMENSION) - 5)/DIMENSION) && ((x + (i * DIMENSION) - 5)/DIMENSION) >= 0 ){
+                        if(matriz[(x + (i * DIMENSION) - 5)/DIMENSION][(y - (i * DIMENSION) - 5) / DIMENSION] == F1){
+                            for(var j = 1; i < 8; j++){
+                                if(matriz[(x + (j * DIMENSION) - 5)/DIMENSION][(y - (j * DIMENSION) - 5)/DIMENSION] == F1){
+                                    alert("Turno de la ficha" + color);
+                                    break;
+                                }  
+                                matriz[(x + (j * DIMENSION) - 5)/DIMENSION][(y - (j * DIMENSION) - 5)/DIMENSION] = F1;
+                                matriz[(x - 5)/DIMENSION][(y - 5)/DIMENSION] = F1;
+                            }
+                        }
+                        if(matriz[(x + (i * DIMENSION) - 5)/DIMENSION][(y - (i * DIMENSION) - 5) / DIMENSION] == 'x'){
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        //Diagonal arriba Izquierda
+        if(((y - 55)/DIMENSION) >= 0 && ((x -  55)/DIMENSION) >= 0 ){
+            if(matriz[(x -  55)/DIMENSION][(y - 55) / DIMENSION] == F2){
+                for(var i = 2; i < 8; i++){
+                    if(((y - (i * DIMENSION) - 5)/DIMENSION) >= 0 && ((x - (i * DIMENSION) - 5)/DIMENSION) >= 0 ){
+                        if(matriz[(x - (i * DIMENSION) - 5)/DIMENSION][(y - (i * DIMENSION) - 5) / DIMENSION] == F1){
+                            for(var j = 1; i < 8; j++){
+                                if(matriz[(x - (j * DIMENSION) - 5)/DIMENSION][(y - (j * DIMENSION) - 5)/DIMENSION] == F1){
+                                    alert("Turno de la ficha" + color);
+                                    break;
+                                }  
+                                matriz[(x - (j * DIMENSION) - 5)/DIMENSION][(y - (j * DIMENSION) - 5)/DIMENSION] = F1;
+                                matriz[(x - 5)/DIMENSION][(y - 5)/DIMENSION] = F1;
+                            }
+                        }
+                        if(matriz[(x - (i * DIMENSION) - 5)/DIMENSION][(y - (i * DIMENSION) - 5) / DIMENSION] == 'x'){
+                            break;
+                        }
+                    }
+                }
+            }
+        }
     }
     return x;
 }
