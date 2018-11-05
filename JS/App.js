@@ -301,3 +301,16 @@ function basicas(){
     dibujar();
     fichas();
 }
+
+
+
+
+
+/*{
+    "Database":{
+        "rules":"database.rules.json"
+    }
+    "hosting":{
+        "public":"public"
+    }
+}*/
