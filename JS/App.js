@@ -352,7 +352,7 @@ function Movida(x, y, F1, F2, color) {
                                 turno();
                             }
                         }
-                        if (matriz[(x + (j * DIMENSION) - 5) / DIMENSION][(y - (i * DIMENSION) - 5) / DIMENSION] == 'x') {
+                        if (matriz[(x + (i * DIMENSION) - 5) / DIMENSION][(y - (i * DIMENSION) - 5) / DIMENSION] == 'x') {
                             break;
                         }
                     }
