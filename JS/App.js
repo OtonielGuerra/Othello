@@ -14,6 +14,11 @@ var matriz = new Array(8);
 var x = 5;
 var y = 5;
 
+// fichas ganadoras
+var BF = 0;
+var NF = 0;
+var cont = 0;
+
 //switch
 var SW = true;
 
@@ -85,6 +90,9 @@ function iniciarMatriz() {
 
 //Funcion para regresar ficha
 function regresar() {
+    if (cont == 64) {
+        MensajeGanador();
+    }
     if (noTurno == true) {
         lapiz.drawImage(fichaNegra.imagen, x, y);
     } else {
@@ -184,6 +192,7 @@ function movimiento(evento) {
             x = 5;
             y = 5;
             basicas();
+            cont = cont + 1;
             break;
     }
 }
@@ -406,5 +415,28 @@ function turno() {
             noTurno = true;
         }
         WS = true;
+    }
+}
+
+//Mensaje Ganador
+function MensajeGanador() {
+    for (var i = 0; i < matriz.length; i++) {
+        for (var j = 0; j < matriz.length; j++) {
+            if (matriz[i][j] == "fb") {
+                BF = BF + 1;
+            }
+            if (matriz[i][j] == "fn") {
+                NF = NF + 1;
+            }
+        }
+    }
+    if (NF > BF) {
+        alert("Gana La Ficha Negra");
+    }
+    if (Bf > NF) {
+        alert("Gana La Ficha Blanca");
+    }
+    if (BF == NF) {
+        alert("Empate");
     }
 }
