@@ -90,7 +90,7 @@ function iniciarMatriz() {
 
 //Funcion para regresar ficha
 function regresar() {
-    if (cont == 64) {
+    if (cont == 60) {
         MensajeGanador();
     }
     if (noTurno == true) {
@@ -192,7 +192,7 @@ function movimiento(evento) {
             x = 5;
             y = 5;
             basicas();
-            cont = cont + 1;
+            console.log(cont);
             break;
     }
 }
@@ -327,7 +327,6 @@ function Movida(x, y, F1, F2, color) {
                 for (var i = 2; i < 8; i++) {
                     if (((y + (i * DIMENSION) - 5) / DIMENSION) < 8 && ((x - (i * DIMENSION) - 5) / DIMENSION) >= 0) {
                         if (matriz[(x - (i * DIMENSION) - 5) / DIMENSION][(y + (i * DIMENSION) - 5) / DIMENSION] == F1) {
-                            console.log("Hola amigo");
                             for (var j = 1; i < 8; j++) {
                                 if (matriz[(x - (j * DIMENSION) - 5) / DIMENSION][(y + (j * DIMENSION) - 5) / DIMENSION] == F1) {
                                     break;
@@ -392,11 +391,6 @@ function Movida(x, y, F1, F2, color) {
             }
         }
     }
-    if (WS == true) {
-        return alert("Turno de la ficha" + color);
-    } else {
-        return alert("Aqui no puede poner tu ficha amigo, Intenta de nuevo");
-    }
 }
 
 //Funciones basicas llamadas para recargar las imagenes
@@ -415,6 +409,7 @@ function turno() {
             noTurno = true;
         }
         WS = true;
+        cont++;
     }
 }
 
@@ -430,13 +425,16 @@ function MensajeGanador() {
             }
         }
     }
-    if (NF > BF) {
-        alert("Gana La Ficha Negra");
+    if (BF + NF == 64) {
+        if (NF > BF) {
+            alert("Gana La Ficha Negra");
+        }
+        if (Bf > NF) {
+            alert("Gana La Ficha Blanca");
+        }
+        if (BF == NF) {
+            alert("Empate");
+        }
     }
-    if (Bf > NF) {
-        alert("Gana La Ficha Blanca");
-    }
-    if (BF == NF) {
-        alert("Empate");
-    }
+    location.reload();
 }
